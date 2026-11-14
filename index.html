@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dunia Cerita | Buku Cerita Bergambar</title>
+<style>
+:root{--cream:#fffaf0;--paper:#fffdf8;--pink:#f6dce2;--pink2:#eebbc8;--brown:#755746;--ink:#514239;--sage:#dce8d7;--sage2:#a9c4a1;--yellow:#f8e9b5;--line:#eadfd1;--shadow:0 12px 35px #73584216}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:"Trebuchet MS",Arial,sans-serif;line-height:1.6}
+button,input,textarea{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+header{position:sticky;top:0;z-index:10;background:#fffaf0eF;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;color:var(--brown);letter-spacing:.3px}.brand span{font-size:1.3rem;margin-right:6px}
+.nav small{color:#9a8272}.wrap{max-width:1000px;margin:0 auto;padding:28px 20px 70px}
+.hero{min-height:70vh;display:grid;place-items:center;text-align:center;padding:35px 18px}
+.hero-card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
+.hero-card{max-width:680px;width:100%;padding:clamp(25px,6vw,55px);position:relative;overflow:hidden}
+.hero-art{font-size:4rem;letter-spacing:10px;margin-bottom:8px}.eyebrow{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:#a78370;font-weight:800}
+h1{font-family:Georgia,serif;color:var(--brown);font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;margin:10px 0}
+h2{font-family:Georgia,serif;color:var(--brown);font-size:clamp(1.55rem,3vw,2.1rem);margin:0 0 8px}
+h3{color:var(--brown);margin:0 0 8px}.sub{color:#887466;max-width:540px;margin:0 auto 25px}
+.field{text-align:left;max-width:420px;margin:22px auto 14px}.field label{display:block;font-weight:800;font-size:.9rem;margin-bottom:7px}
+input[type=text],textarea{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;background:#fffefa;color:var(--ink);outline:none}
+input:focus,textarea:focus{border-color:var(--pink2);box-shadow:0 0 0 3px #f6dce255}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--brown);color:white;font-weight:800;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}.btn.soft{background:var(--pink);color:var(--brown)}.btn.green{background:#78916f}.btn.line{background:white;color:var(--brown);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.panel{padding:clamp(20px,4vw,34px);margin:18px 0}.center{text-align:center}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px;margin:24px 0}
+.step{background:#fff9f2;border:1px solid var(--line);border-radius:18px;padding:17px;text-align:center}
+.step .ico{font-size:2rem}.step p{font-size:.9rem;color:#887466;margin:5px 0 0}
+.note{background:#fff5d9;border-radius:14px;padding:13px 16px;color:#806b45;font-size:.9rem;margin:15px 0}
+.progress{height:8px;background:#eee5da;border-radius:99px;overflow:hidden;margin:15px 0 25px}.progress>div{height:100%;background:var(--sage2);width:0;transition:.3s}
+.book-toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:15px 0}
+.upload-box{border:2px dashed #d8b9ad;border-radius:20px;padding:28px;text-align:center;background:#fff9f6}
+.upload-box input{max-width:100%;margin-top:12px}
+.pdf-frame{width:100%;height:min(72vh,780px);border:1px solid var(--line);border-radius:16px;background:#f4eee7}
+.empty-book{padding:35px 15px;text-align:center;color:#8b796c}
+.quiz-q{background:#fff9f3;border:1px solid var(--line);padding:18px;border-radius:18px;margin:15px 0}
+.option{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:8px 0;cursor:pointer}
+.option:hover{border-color:var(--pink2)}.option input{margin-top:5px;accent-color:#9a716e}
+textarea{min-height:90px;resize:vertical}.muted{color:#927f71;font-size:.9rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:#fff8f0;border:1px solid var(--line);border-radius:18px;padding:17px}.stat strong{display:block;font: bold 2rem Georgia;color:var(--brown)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--brown);background:#fff8f0}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:15px}
+footer{text-align:center;color:#a18c7d;font-size:.82rem;padding:25px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#514239;color:white;padding:11px 18px;border-radius:99px;box-shadow:var(--shadow);z-index:30}
+.small-link{background:none;color:#8a6b5b;text-decoration:underline;padding:5px}
+@media(max-width:600px){.wrap{padding:18px 13px 50px}.nav{padding:10px 14px}.nav small{display:none}.hero{min-height:65vh}.panel{border-radius:21px}.pdf-frame{height:65vh}th,td{padding:8px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand"><span>🌼</span> DUNIA CERITA</div><small>Ruang membaca, bermain, dan berefleksi</small><button class="small-link" onclick="showAdminLogin()">Admin</button></div></header>
+
+<main class="wrap">
+<section id="welcome" class="hero">
+ <div class="hero-card">
+  <div class="hero-art">📚 🌷 🐞</div><div class="eyebrow">Sebuah petualangan dimulai</div>
+  <h1>Selamat Datang di Dunia Cerita!</h1>
+  <p class="sub">Yuk, temukan kisah seru, jawab pertanyaan, dan bagikan hal menarik yang kamu pelajari.</p>
+  <div class="field"><label for="visitorName">Siapa namamu?</label><input id="visitorName" type="text" maxlength="40" placeholder="Tulis nama panggilanmu..." autocomplete="given-name"></div>
+  <button class="btn" onclick="startJourney()">Mulai Membaca ✨</button>
+  <p class="muted" style="margin-top:18px">Gunakan nama panggilan saja, ya.</p>
+ </div>
+</section>
+
+<section id="instructions" class="hidden">
+ <div class="panel center">
+  <div style="font-size:2.5rem">🧭 🌻</div><div class="eyebrow">Sebelum memulai</div><h2>Petunjuk Penggunaan</h2>
+  <p class="muted">Ikuti langkah-langkah sederhana ini untuk menikmati seluruh kegiatan.</p>
+  <div class="steps">
+   <div class="step"><div class="ico">📖</div><h3>1. Baca cerita</h3><p>Buka buku cerita dan baca setiap halaman dengan teliti.</p></div>
+   <div class="step"><div class="ico">🧠</div><h3>2. Kerjakan kuis</h3><p>Jawab pertanyaan berdasarkan cerita yang sudah kamu baca.</p></div>
+   <div class="step"><div class="ico">💭</div><h3>3. Isi refleksi</h3><p>Tuliskan pelajaran dan kesanmu setelah membaca cerita.</p></div>
+   <div class="step"><div class="ico">⭐</div><h3>4. Selesaikan</h3><p>Lihat hasil kegiatan dan pesan penutup.</p></div>
+  </div>
+  <div class="note">📌 Jika buku belum tersedia, beri tahu guru agar PDF cerita diunggah terlebih dahulu.</div>
+  <div class="actions"><button class="btn soft" onclick="show('welcome')">Kembali</button><button class="btn" onclick="show('reader')">Lanjut ke Buku →</button></div>
+ </div>
+</section>
+
+<section id="reader" class="hidden">
+ <div class="panel">
+  <div class="eyebrow">Waktunya membaca</div><h2>📚 Buku Cerita Bergambar</h2>
+  <p class="muted">Bacalah cerita dengan saksama. Kamu dapat mengganti file PDF kapan saja melalui pilihan unggah di bawah ini.</p>
+  <div class="upload-box" id="uploadBox">
+   <div style="font-size:2.5rem">📄</div><h3>Unggah buku cerita PDF</h3>
+   <p class="muted">Pilih file PDF dari perangkatmu. File disimpan di browser pada perangkat ini.</p>
+   <input type="file" id="pdfUpload" accept="application/pdf">
+   <p class="muted" id="fileStatus">Belum ada buku yang diunggah.</p>
+  </div>
+  <div id="bookArea" class="hidden">
+   <div class="book-toolbar"><strong id="bookName">Buku cerita</strong><button class="btn line" onclick="removePDF()">Hapus PDF</button></div>
+   <iframe id="pdfViewer" class="pdf-frame" title="Pembaca buku cerita PDF"></iframe>
+  </div>
+  <div class="empty-book" id="bookEmpty">🌱 Setelah PDF diunggah, buku cerita akan tampil di sini.</div>
+  <div class="actions"><button class="btn soft" onclick="show('instructions')">← Petunjuk</button><button class="btn" onclick="show('quiz')">Lanjut ke Kuis →</button></div>
+ </div>
+</section>
+
+<section id="quiz" class="hidden">
+ <div class="panel">
+  <div class="eyebrow">Uji pemahamanmu</div><h2>🧠 Kuis Cerita</h2>
+  <p class="muted">Jawablah pertanyaan berikut setelah membaca cerita. Pilih satu jawaban yang paling tepat.</p>
+  <div class="note">Catatan untuk pengelola: pertanyaan contoh di bawah mengacu pada cerita “Semut dan Belalang”. Kamu dapat mengganti teks pertanyaan dan pilihan jawaban pada bagian <b>quizData</b> di dalam file HTML.</div>
+  <div id="quizForm"></div>
+  <div class="actions"><button class="btn soft" onclick="show('reader')">← Kembali ke Buku</button><button class="btn" onclick="submitQuiz()">Periksa Jawaban ✨</button></div>
+  <div id="quizResult" class="note hidden"></div>
+  <div class="actions hidden" id="afterQuiz"><button class="btn green" onclick="show('reflection')">Lanjut ke Refleksi →</button></div>
+ </div>
+</section>
+
+<section id="reflection" class="hidden">
+ <div class="panel">
+  <div class="eyebrow">Berhenti sejenak dan pikirkan</div><h2>💭 Refleksi Cerita</h2>
+  <p class="muted">Ceritakan pendapatmu dengan jujur. Tidak ada jawaban yang harus sama.</p>
+  <div class="field"><label for="lesson">1. Apa pesan atau pelajaran yang kamu dapatkan dari cerita?</label><textarea id="lesson" placeholder="Menurutku, cerita ini mengajarkan bahwa..."></textarea></div>
+  <div class="field"><label for="favorite">2. Tokoh atau bagian mana yang paling kamu sukai? Mengapa?</label><textarea id="favorite" placeholder="Bagian yang paling kusukai adalah..."></textarea></div>
+  <div class="field"><label for="feeling">3. Bagaimana perasaanmu setelah membaca cerita?</label><textarea id="feeling" placeholder="Setelah membaca cerita, aku merasa..."></textarea></div>
+  <div class="field"><label for="message">4. Tuliskan kesan atau pesan untuk cerita ini.</label><textarea id="message" placeholder="Kesan dan pesanku..."></textarea></div>
+  <div class="actions"><button class="btn soft" onclick="show('quiz')">← Kembali ke Kuis</button><button class="btn" onclick="finishJourney()">Kirim Refleksi 🌷</button></div>
+ </div>
+</section>
+
+<section id="finish" class="hidden">
+ <div class="hero"><div class="hero-card">
+  <div class="hero-art">🌟 📚 🌷</div><div class="eyebrow">Petualangan selesai</div>
+  <h1>Terima Kasih, <span id="finishName">Teman</span>!</h1>
+  <p class="sub">Terima kasih sudah membaca, berpikir, dan berbagi refleksi. Teruslah menikmati cerita dan menemukan hal-hal baik di dalamnya.</p>
+  <div class="note" id="finishScore">Skor kuismu akan tampil di sini.</div>
+  <button class="btn" onclick="show('welcome')">Kembali ke Halaman Awal</button>
+ </div></div>
+</section>
+
+<section id="admin" class="hidden">
+ <div class="panel">
+  <div class="eyebrow">Area pengelola</div><h2>📊 Dashboard Pengunjung</h2>
+  <p class="muted">Data yang tampil di sini tersimpan pada browser dan perangkat yang sama.</p>
+  <div class="stats">
+   <div class="stat"><span class="muted">Total kunjungan</span><strong id="totalVisits">0</strong></div>
+   <div class="stat"><span class="muted">Pengunjung unik</span><strong id="uniqueVisitors">0</strong></div>
+   <div class="stat"><span class="muted">Kuis dikerjakan</span><strong id="quizCount">0</strong></div>
+   <div class="stat"><span class="muted">Refleksi terkirim</span><strong id="reflectionCount">0</strong></div>
+  </div>
+  <h3 style="margin-top:25px">Riwayat aktivitas</h3>
+  <div class="table-wrap"><table><thead><tr><th>Nama</th><th>Waktu</th><th>Skor</th><th>Refleksi</th></tr></thead><tbody id="visitorRows"><tr><td colspan="4">Belum ada data.</td></tr></tbody></table></div>
+  <div class="actions"><button class="btn green" onclick="exportCSV()">Unduh Data CSV</button><button class="btn line" onclick="clearData()">Hapus Semua Data</button><button class="btn soft" onclick="show('welcome')">Keluar Dashboard</button></div>
+  <p class="muted" style="margin-top:15px">Catatan: dashboard lokal ini hanya menghitung aktivitas pada browser/perangkat yang sama. Untuk rekap gabungan dari banyak HP/laptop, website perlu dihubungkan ke database online.</p>
+ </div>
+</section>
+</main>
+<footer> dibuat dengan 🌼 untuk menemani petualangan membaca </footer>
+<div id="toast" class="toast hidden"></div>
+
+<script>
+const quizData = [
+ {q:"Apa yang dilakukan semut ketika musim panas?",o:["Bermain sepanjang hari","Mengumpulkan makanan","Tidur di dalam sarang","Mencari tempat yang dingin"],a:1},
+ {q:"Apa yang dilakukan belalang ketika semut bekerja?",o:["Membantu semut mengumpulkan makanan","Membangun sarang","Bermain dan bermalas-malasan","Menyimpan persediaan makanan"],a:2},
+ {q:"Mengapa persediaan makanan penting bagi semut?",o:["Untuk dijual kepada hewan lain","Untuk menghadapi musim dingin","Agar sarangnya menjadi besar","Supaya tidak perlu bekerja lagi"],a:1},
+ {q:"Apa yang dapat kita pelajari dari sikap semut?",o:["Pentingnya bekerja keras dan mempersiapkan diri","Lebih baik menunda semua pekerjaan","Bermain lebih penting daripada tanggung jawab","Tidak perlu memikirkan masa depan"],a:0},
+ {q:"Kapan waktu yang tepat untuk mempersiapkan kebutuhan masa depan?",o:["Hanya ketika kesulitan datang","Saat orang lain mengingatkan","Sebelum kebutuhan itu mendesak","Setelah semua kesempatan berlalu"],a:2}
+];
+let currentName="", currentScore=null, pdfUrl=null, pdfDB=null;
+const DB_NAME="DuniaCeritaDB", STORE="files";
+function show(id){document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});if(id==="admin")renderAdmin();}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2600);}
+function getData(){try{return JSON.parse(localStorage.getItem("duniaCeritaData")||"[]")}catch(e){return []}}
+function saveData(d){localStorage.setItem("duniaCeritaData",JSON.stringify(d))}
+function startJourney(){const n=document.getElementById("visitorName").value.trim();if(!n){toast("Tulis nama panggilanmu terlebih dahulu, ya.");return;}currentName=n.slice(0,40);currentScore=null;sessionStorage.setItem("currentVisitor",currentName);const d=getData();d.push({name:currentName,time:new Date().toISOString(),score:null,quizDone:false,reflectionDone:false,lesson:"",favorite:"",feeling:"",message:""});saveData(d);sessionStorage.setItem("visitIndex",String(d.length-1));show("instructions");}
+function showAdminLogin(){const pin=prompt("Masukkan PIN admin (PIN awal: 1234):");if(pin==="1234"){show("admin")}else if(pin!==null){toast("PIN tidak sesuai.");}}
+function renderQuiz(){const f=document.getElementById("quizForm");f.innerHTML="";quizData.forEach((q,i)=>{const box=document.createElement("div");box.className="quiz-q";const title=document.createElement("h3");title.textContent=(i+1)+". "+q.q;box.appendChild(title);q.o.forEach((op,j)=>{const lab=document.createElement("label");lab.className="option";const inp=document.createElement("input");inp.type="radio";inp.name="q"+i;inp.value=j;const span=document.createElement("span");span.textContent=op;lab.append(inp,span);box.appendChild(lab)});f.appendChild(box)});}
+renderQuiz();
+function submitQuiz(){let score=0,answered=0;quizData.forEach((q,i)=>{const v=document.querySelector('input[name="q'+i+'"]:checked');if(v){answered++;if(Number(v.value)===q.a)score++;}});if(answered!==quizData.length){toast("Jawab semua pertanyaan terlebih dahulu.");return;}currentScore=Math.round(score/quizData.length*100);const d=getData(),idx=Number(sessionStorage.getItem("visitIndex"));if(d[idx]){d[idx].score=currentScore;d[idx].quizDone=true;saveData(d);}const r=document.getElementById("quizResult");r.textContent="Kamu menjawab "+score+" dari "+quizData.length+" pertanyaan dengan benar. Skormu: "+currentScore+". Terus semangat belajar!";r.classList.remove("hidden");document.getElementById("afterQuiz").classList.remove("hidden");toast("Jawabanmu sudah diperiksa!");}
+function finishJourney(){const vals=["lesson","favorite","feeling","message"].map(id=>document.getElementById(id).value.trim());if(vals.some(v=>!v)){toast("Lengkapi semua bagian refleksi terlebih dahulu, ya.");return;}const d=getData(),idx=Number(sessionStorage.getItem("visitIndex"));if(d[idx]){[d[idx].lesson,d[idx].favorite,d[idx].feeling,d[idx].message]=vals;d[idx].reflectionDone=true;saveData(d);}document.getElementById("finishName").textContent=currentName||"Teman";document.getElementById("finishScore").textContent=currentScore===null?"Terima kasih sudah mengisi refleksi!":"Skor kuismu: "+currentScore+" / 100. Terima kasih sudah menyelesaikan semua kegiatan!";show("finish");}
+function renderAdmin(){const d=getData();document.getElementById("totalVisits").textContent=d.length;document.getElementById("uniqueVisitors").textContent=new Set(d.map(x=>x.name.toLowerCase())).size;document.getElementById("quizCount").textContent=d.filter(x=>x.quizDone).length;document.getElementById("reflectionCount").textContent=d.filter(x=>x.reflectionDone).length;const body=document.getElementById("visitorRows");body.innerHTML="";if(!d.length){body.innerHTML='<tr><td colspan="4">Belum ada data.</td></tr>';return;}d.slice().reverse().forEach(x=>{const tr=document.createElement("tr");const date=new Date(x.time).toLocaleString("id-ID");const cells=[x.name,date,x.score===null?"Belum mengerjakan":x.score+"/100",x.reflectionDone?"Sudah":"Belum"];cells.forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td)});body.appendChild(tr);});}
+function exportCSV(){const d=getData();if(!d.length){toast("Belum ada data untuk diunduh.");return;}const cols=["Nama","Waktu","Skor","Kuis selesai","Refleksi selesai","Pesan moral","Tokoh/bagian favorit","Perasaan","Kesan dan pesan"];const rows=d.map(x=>[x.name,new Date(x.time).toLocaleString("id-ID"),x.score??"",x.quizDone?"Ya":"Tidak",x.reflectionDone?"Ya":"Tidak",x.lesson,x.favorite,x.feeling,x.message]);const csv=[cols,...rows].map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="data-pengunjung-dunia-cerita.csv";a.click();URL.revokeObjectURL(a.href);}
+function clearData(){if(confirm("Yakin ingin menghapus seluruh data pengunjung dari browser ini?")){localStorage.removeItem("duniaCeritaData");renderAdmin();toast("Data pada browser ini telah dihapus.");}}
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,1);req.onupgradeneeded=()=>req.result.createObjectStore(STORE);req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
+async function savePDF(file){if(file.type!=="application/pdf"){toast("Pilih file PDF, ya.");return;}if(file.size>30*1024*1024){toast("Ukuran PDF maksimal 30 MB.");return;}try{const db=await openDB();const tx=db.transaction(STORE,"readwrite");tx.objectStore(STORE).put({blob:file,name:file.name},"book");tx.oncomplete=()=>{db.close();loadPDF();toast("Buku PDF berhasil disimpan di perangkat ini.");};tx.onerror=()=>{db.close();toast("PDF tidak dapat disimpan di browser.");};}catch(e){toast("Penyimpanan PDF tidak tersedia pada browser ini.");}}
+async function loadPDF(){try{const db=await openDB();const tx=db.transaction(STORE,"readonly");const req=tx.objectStore(STORE).get("book");req.onsuccess=()=>{const item=req.result;if(item){if(pdfUrl)URL.revokeObjectURL(pdfUrl);pdfUrl=URL.createObjectURL(item.blob);document.getElementById("pdfViewer").src=pdfUrl;document.getElementById("bookName").textContent=item.name;document.getElementById("fileStatus").textContent="File tersimpan: "+item.name;document.getElementById("bookArea").classList.remove("hidden");document.getElementById("bookEmpty").classList.add("hidden");}else{document.getElementById("bookArea").classList.add("hidden");document.getElementById("bookEmpty").classList.remove("hidden");}db.close();};}catch(e){}}
+async function removePDF(){if(!confirm("Hapus buku PDF dari perangkat ini?"))return;const db=await openDB();const tx=db.transaction(STORE,"readwrite");tx.objectStore(STORE).delete("book");tx.oncomplete=()=>{db.close();if(pdfUrl)URL.revokeObjectURL(pdfUrl);pdfUrl=null;loadPDF();document.getElementById("pdfUpload").value="";toast("PDF berhasil dihapus.");};}
+document.getElementById("pdfUpload").addEventListener("change",e=>{const f=e.target.files[0];if(f)savePDF(f);});
+loadPDF();
+</script>
+</body>
+</html>
